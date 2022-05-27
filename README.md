@@ -22,6 +22,9 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 
 This, for example, builds a 64-bit Windows version.
 
+To quickly build all common versions, run `build.bat` or `build.sh` scripts. You will then find the framework-dependent version
+in `build/fw` and stand-alone runnable versions in the other sub directories of `build`.
+
 ## Using
 
 This program is command-line driven. The following options are understood:
