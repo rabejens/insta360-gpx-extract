@@ -6,8 +6,10 @@ open Acadian.FSharp
 open System
 open System.Collections.Generic
 
+let private trailerBytes = Encoding.ASCII.GetBytes "8db42d694ccc418790edff439fe026bf"
+
+// TODO: This is very brute force. Should analyze how ExifTool finds the trailer and port this approach.
 let private tryFindTrailerPos (reader: BinaryReader) =
-    let trailerBytes = Encoding.ASCII.GetBytes "8db42d694ccc418790edff439fe026bf"
     let stream = reader.BaseStream
     // From the end of the stream, get chunks of 1MiB, overlapped by 64 bytes.
     // This way, if the trailer is there, the trailer bytes are hit.

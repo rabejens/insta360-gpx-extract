@@ -45,3 +45,8 @@ Insta360GPXExtract -i D:\Insta360Videos -o D:\Insta360Videos\track.gpx -r -s
 ```
 
 will assemble one `track.gpx` file from all suitable `.insv` files found.
+
+## To do
+
+ * Better approach to find the Insta360 trailer, current one is a bit brute-force
+ * Support videos shot with 1-inch module
