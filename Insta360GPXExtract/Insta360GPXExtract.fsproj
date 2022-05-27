@@ -13,8 +13,4 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Acadian.FSharp" Version="1.2.23" />
-  </ItemGroup>
-
 </Project>

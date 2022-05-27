@@ -11,6 +11,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GPSDataExtract_Test", "GPSD
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GPSCommon", "GPSCommon\GPSCommon.fsproj", "{C4F17CA7-33A3-4DAE-86F5-88A603DB2E8C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GPXExport", "GPXExport\GPXExport.fsproj", "{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C4F17CA7-33A3-4DAE-86F5-88A603DB2E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4F17CA7-33A3-4DAE-86F5-88A603DB2E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4F17CA7-33A3-4DAE-86F5-88A603DB2E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
