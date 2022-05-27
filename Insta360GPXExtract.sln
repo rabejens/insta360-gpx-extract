@@ -7,14 +7,18 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Insta360GPXExtract", "Insta
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "GPSDataExtract", "GPSDataExtract\GPSDataExtract.fsproj", "{8E6ABE19-A63E-4176-B10A-774E28B9F90D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GPSDataExtract_Test", "GPSDataExtract_Test\GPSDataExtract_Test.fsproj", "{E0038C4D-9CAD-42E9-80C6-25D1AE98A221}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "GPSDataExtract_Test", "GPSDataExtract_Test\GPSDataExtract_Test.fsproj", "{E0038C4D-9CAD-42E9-80C6-25D1AE98A221}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GPSCommon", "GPSCommon\GPSCommon.fsproj", "{C4F17CA7-33A3-4DAE-86F5-88A603DB2E8C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "GPSCommon", "GPSCommon\GPSCommon.fsproj", "{C4F17CA7-33A3-4DAE-86F5-88A603DB2E8C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GPXExport", "GPXExport\GPXExport.fsproj", "{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "GPXExport", "GPXExport\GPXExport.fsproj", "{D9CBEF2F-7F41-4A63-8635-DE45CAB9E03C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D794DA12-4C0C-4B8D-9F11-AF9C5CCC1C07}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.bat = build.bat
+		build.sh = build.sh
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
