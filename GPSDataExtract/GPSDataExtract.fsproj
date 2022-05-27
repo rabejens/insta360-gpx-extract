@@ -10,12 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="GPSEntry.fs" />
     <Compile Include="GPSExtract.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Acadian.FSharp" Version="1.2.23" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GPSCommon\GPSCommon.fsproj" />
   </ItemGroup>
 
 </Project>
