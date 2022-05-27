@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Tailcalls>True</Tailcalls>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="GPSEntry.fs" />
+    <Compile Include="GPSExtract.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acadian.FSharp" Version="1.2.23" />
+  </ItemGroup>
+
+</Project>
