@@ -6,6 +6,8 @@ open System.Text
 open System.Text.RegularExpressions
 open System
 
+let private vidPattern = "^[vV][iI][dD]_(\\d{4})(\\d{2})(\\d{2})_(\\d{2})(\\d{2})(\\d{2})_00_(\\d+)\\.[iI][nN][sS][vV]$"
+
 let private mkOpt opt longOpt maybeArgName description isRequired =
     let cliOpt = new Option(opt, maybeArgName |> Option.isSome, description)
     cliOpt.SetLongOpt longOpt
@@ -17,16 +19,16 @@ let private mkOpt opt longOpt maybeArgName description isRequired =
 let private opts =
     let opts = new Options()
     opts.AddOption("h", "help", false, "Display this help")
-        .AddOption(mkOpt "i" "in-path" (Some "PATH") "Input file or directory with insv files" true)
+        .AddOption(mkOpt "i" "in-path" (Some "PATH") "Input file or directory with insv files. For directories, only files conforming to the naming VID_yyyyMMdd_HHmmss_00_nnn.insv are used." true)
         .AddOption(mkOpt "o" "out-path" (Some "PATH") "Output file or directory. If the path is an existing directory, the output file(s) will be written there. If not, and only one file is to be written, the path denotes the file. If not, and multiple files are to be written, a new directory is created." true)
-        .AddOption("s", "single", false, "Assemble all input files into one single GPX file. Make sure the timestamps do NOT overlap! For this to work, all files must conform to the Insta360 naming convention, VID_yyyyMMdd_HHmmss_00_nnn.insv")
+        .AddOption("s", "single", false, "Assemble all input files into one single GPX file. Make sure the timestamps do NOT overlap!")
         .AddOption("r", "recursive", false, "If given, recurse into all input directories")
 
 let rec private enumerateInsvFiles recursive path = seq {
     if File.Exists path then
         yield path
     elif Directory.Exists path then
-        yield! Directory.EnumerateFiles(path, "*.insv")
+        yield! Directory.EnumerateFiles(path, "*.insv") |> Seq.filter(fun f -> Regex.IsMatch(Path.GetFileName(f), vidPattern))
         if recursive then yield! Directory.EnumerateDirectories(path) |> Seq.collect(enumerateInsvFiles recursive)
     else
         invalidArg "-i" (sprintf "%s does not exist" path)
@@ -83,7 +85,7 @@ let private writeConcatGpxFile outPath inputFiles =
     let gpsData =
         inputFiles
         |> Seq.choose(fun (f: string) ->
-            let m = Regex.Match(Path.GetFileName(f), "^[vV][iI][dD]_(\\d{4})(\\d{2})(\\d{2})_(\\d{2})(\\d{2})(\\d{2})_00_(\\d+)\\.[iI][nN][sS][vV]$")
+            let m = Regex.Match(Path.GetFileName(f), vidPattern)
             if m.Success then
                 let date = Int32.Parse(m.Groups.[1].Value), Int32.Parse(m.Groups.[2].Value), Int32.Parse(m.Groups.[3].Value), Int32.Parse(m.Groups.[4].Value), Int32.Parse(m.Groups.[5].Value), Int32.Parse(m.Groups.[6].Value)
                 Some(f, date)
