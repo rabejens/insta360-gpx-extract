@@ -13,4 +13,13 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Commons.CLI4net" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GPSDataExtract\GPSDataExtract.fsproj" />
+    <ProjectReference Include="..\GPXExport\GPXExport.fsproj" />
+  </ItemGroup>
+
 </Project>
